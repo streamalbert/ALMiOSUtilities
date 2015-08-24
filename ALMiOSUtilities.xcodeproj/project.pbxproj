@@ -1,0 +1,439 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		13FF27A51B8AE00700EB347F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF27A41B8AE00700EB347F /* main.m */; };
+		13FF27A81B8AE00700EB347F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF27A71B8AE00700EB347F /* AppDelegate.m */; };
+		13FF27AB1B8AE00700EB347F /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF27AA1B8AE00700EB347F /* MasterViewController.m */; };
+		13FF27AE1B8AE00700EB347F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF27AD1B8AE00700EB347F /* DetailViewController.m */; };
+		13FF27B11B8AE00700EB347F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13FF27AF1B8AE00700EB347F /* Main.storyboard */; };
+		13FF27B31B8AE00700EB347F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13FF27B21B8AE00700EB347F /* Images.xcassets */; };
+		13FF27B61B8AE00700EB347F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13FF27B41B8AE00700EB347F /* LaunchScreen.xib */; };
+		13FF27C21B8AE00700EB347F /* ALMiOSUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF27C11B8AE00700EB347F /* ALMiOSUtilitiesTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		13FF27BC1B8AE00700EB347F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 13FF27971B8AE00700EB347F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13FF279E1B8AE00700EB347F;
+			remoteInfo = ALMiOSUtilities;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		13FF279F1B8AE00700EB347F /* ALMiOSUtilities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ALMiOSUtilities.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13FF27A31B8AE00700EB347F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13FF27A41B8AE00700EB347F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		13FF27A61B8AE00700EB347F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		13FF27A71B8AE00700EB347F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		13FF27A91B8AE00700EB347F /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		13FF27AA1B8AE00700EB347F /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		13FF27AC1B8AE00700EB347F /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		13FF27AD1B8AE00700EB347F /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		13FF27B01B8AE00700EB347F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		13FF27B21B8AE00700EB347F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		13FF27B51B8AE00700EB347F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		13FF27BB1B8AE00700EB347F /* ALMiOSUtilitiesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ALMiOSUtilitiesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		13FF27C01B8AE00700EB347F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13FF27C11B8AE00700EB347F /* ALMiOSUtilitiesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALMiOSUtilitiesTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		13FF279C1B8AE00700EB347F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13FF27B81B8AE00700EB347F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		13FF27961B8AE00700EB347F = {
+			isa = PBXGroup;
+			children = (
+				13FF27A11B8AE00700EB347F /* ALMiOSUtilities */,
+				13FF27BE1B8AE00700EB347F /* ALMiOSUtilitiesTests */,
+				13FF27A01B8AE00700EB347F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		13FF27A01B8AE00700EB347F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				13FF279F1B8AE00700EB347F /* ALMiOSUtilities.app */,
+				13FF27BB1B8AE00700EB347F /* ALMiOSUtilitiesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		13FF27A11B8AE00700EB347F /* ALMiOSUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				13FF27A61B8AE00700EB347F /* AppDelegate.h */,
+				13FF27A71B8AE00700EB347F /* AppDelegate.m */,
+				13FF27A91B8AE00700EB347F /* MasterViewController.h */,
+				13FF27AA1B8AE00700EB347F /* MasterViewController.m */,
+				13FF27AC1B8AE00700EB347F /* DetailViewController.h */,
+				13FF27AD1B8AE00700EB347F /* DetailViewController.m */,
+				13FF27AF1B8AE00700EB347F /* Main.storyboard */,
+				13FF27B21B8AE00700EB347F /* Images.xcassets */,
+				13FF27B41B8AE00700EB347F /* LaunchScreen.xib */,
+				13FF27A21B8AE00700EB347F /* Supporting Files */,
+			);
+			path = ALMiOSUtilities;
+			sourceTree = "<group>";
+		};
+		13FF27A21B8AE00700EB347F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				13FF27A31B8AE00700EB347F /* Info.plist */,
+				13FF27A41B8AE00700EB347F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		13FF27BE1B8AE00700EB347F /* ALMiOSUtilitiesTests */ = {
+			isa = PBXGroup;
+			children = (
+				13FF27C11B8AE00700EB347F /* ALMiOSUtilitiesTests.m */,
+				13FF27BF1B8AE00700EB347F /* Supporting Files */,
+			);
+			path = ALMiOSUtilitiesTests;
+			sourceTree = "<group>";
+		};
+		13FF27BF1B8AE00700EB347F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				13FF27C01B8AE00700EB347F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		13FF279E1B8AE00700EB347F /* ALMiOSUtilities */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13FF27C51B8AE00700EB347F /* Build configuration list for PBXNativeTarget "ALMiOSUtilities" */;
+			buildPhases = (
+				13FF279B1B8AE00700EB347F /* Sources */,
+				13FF279C1B8AE00700EB347F /* Frameworks */,
+				13FF279D1B8AE00700EB347F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ALMiOSUtilities;
+			productName = ALMiOSUtilities;
+			productReference = 13FF279F1B8AE00700EB347F /* ALMiOSUtilities.app */;
+			productType = "com.apple.product-type.application";
+		};
+		13FF27BA1B8AE00700EB347F /* ALMiOSUtilitiesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13FF27C81B8AE00700EB347F /* Build configuration list for PBXNativeTarget "ALMiOSUtilitiesTests" */;
+			buildPhases = (
+				13FF27B71B8AE00700EB347F /* Sources */,
+				13FF27B81B8AE00700EB347F /* Frameworks */,
+				13FF27B91B8AE00700EB347F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				13FF27BD1B8AE00700EB347F /* PBXTargetDependency */,
+			);
+			name = ALMiOSUtilitiesTests;
+			productName = ALMiOSUtilitiesTests;
+			productReference = 13FF27BB1B8AE00700EB347F /* ALMiOSUtilitiesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		13FF27971B8AE00700EB347F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Weichuan Tian";
+				TargetAttributes = {
+					13FF279E1B8AE00700EB347F = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					13FF27BA1B8AE00700EB347F = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 13FF279E1B8AE00700EB347F;
+					};
+				};
+			};
+			buildConfigurationList = 13FF279A1B8AE00700EB347F /* Build configuration list for PBXProject "ALMiOSUtilities" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 13FF27961B8AE00700EB347F;
+			productRefGroup = 13FF27A01B8AE00700EB347F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				13FF279E1B8AE00700EB347F /* ALMiOSUtilities */,
+				13FF27BA1B8AE00700EB347F /* ALMiOSUtilitiesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		13FF279D1B8AE00700EB347F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13FF27B11B8AE00700EB347F /* Main.storyboard in Resources */,
+				13FF27B61B8AE00700EB347F /* LaunchScreen.xib in Resources */,
+				13FF27B31B8AE00700EB347F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13FF27B91B8AE00700EB347F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		13FF279B1B8AE00700EB347F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13FF27A81B8AE00700EB347F /* AppDelegate.m in Sources */,
+				13FF27AB1B8AE00700EB347F /* MasterViewController.m in Sources */,
+				13FF27A51B8AE00700EB347F /* main.m in Sources */,
+				13FF27AE1B8AE00700EB347F /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13FF27B71B8AE00700EB347F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13FF27C21B8AE00700EB347F /* ALMiOSUtilitiesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		13FF27BD1B8AE00700EB347F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13FF279E1B8AE00700EB347F /* ALMiOSUtilities */;
+			targetProxy = 13FF27BC1B8AE00700EB347F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		13FF27AF1B8AE00700EB347F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				13FF27B01B8AE00700EB347F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		13FF27B41B8AE00700EB347F /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				13FF27B51B8AE00700EB347F /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		13FF27C31B8AE00700EB347F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		13FF27C41B8AE00700EB347F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		13FF27C61B8AE00700EB347F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ALMiOSUtilities/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		13FF27C71B8AE00700EB347F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ALMiOSUtilities/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		13FF27C91B8AE00700EB347F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ALMiOSUtilitiesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ALMiOSUtilities.app/ALMiOSUtilities";
+			};
+			name = Debug;
+		};
+		13FF27CA1B8AE00700EB347F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ALMiOSUtilitiesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ALMiOSUtilities.app/ALMiOSUtilities";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		13FF279A1B8AE00700EB347F /* Build configuration list for PBXProject "ALMiOSUtilities" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13FF27C31B8AE00700EB347F /* Debug */,
+				13FF27C41B8AE00700EB347F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13FF27C51B8AE00700EB347F /* Build configuration list for PBXNativeTarget "ALMiOSUtilities" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13FF27C61B8AE00700EB347F /* Debug */,
+				13FF27C71B8AE00700EB347F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		13FF27C81B8AE00700EB347F /* Build configuration list for PBXNativeTarget "ALMiOSUtilitiesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13FF27C91B8AE00700EB347F /* Debug */,
+				13FF27CA1B8AE00700EB347F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 13FF27971B8AE00700EB347F /* Project object */;
+}
