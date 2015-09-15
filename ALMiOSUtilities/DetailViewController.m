@@ -7,35 +7,24 @@
 //
 
 #import "DetailViewController.h"
+#import "ZGTPolygonView.h"
+#import "UIBezierPath+ZEPolygon.h"
 
 @interface DetailViewController ()
+
+@property (nonatomic) ZGTPolygonView *polygonView;
 
 @end
 
 @implementation DetailViewController
 
-#pragma mark - Managing the detail item
-
-- (void)setDetailItem:(id)newDetailItem {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-            
-        // Update the view.
-        [self configureView];
-    }
-}
-
-- (void)configureView {
-    // Update the user interface for the detail item.
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
-    }
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
+    
+    self.view.backgroundColor = [UIColor blackColor];
+
+    self.polygonView = [[ZGTPolygonView alloc] initWithFrame:CGRectMake(0.0, 100.0, 200.0, 200.0) image:nil numberOfSides:6 sideColor:[UIColor yellowColor] sideThicknessInPixels:10.0f];
+    [self.view addSubview:self.polygonView];
 }
 
 - (void)didReceiveMemoryWarning {

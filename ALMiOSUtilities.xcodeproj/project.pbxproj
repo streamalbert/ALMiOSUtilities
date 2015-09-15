@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		138886E91B8AE4F700A17609 /* ALMNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 138886E81B8AE4F700A17609 /* ALMNetworkService.m */; };
+		13D7F8FB1B8BB31300647D30 /* ZGTPolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D7F8FA1B8BB31300647D30 /* ZGTPolygonView.m */; };
+		13D7F8FE1B8BB8B600647D30 /* UIBezierPath+ZEPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D7F8FD1B8BB8B600647D30 /* UIBezierPath+ZEPolygon.m */; };
 		13FF27A51B8AE00700EB347F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF27A41B8AE00700EB347F /* main.m */; };
 		13FF27A81B8AE00700EB347F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF27A71B8AE00700EB347F /* AppDelegate.m */; };
 		13FF27AB1B8AE00700EB347F /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF27AA1B8AE00700EB347F /* MasterViewController.m */; };
@@ -32,6 +34,10 @@
 /* Begin PBXFileReference section */
 		138886E71B8AE4F700A17609 /* ALMNetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALMNetworkService.h; sourceTree = "<group>"; };
 		138886E81B8AE4F700A17609 /* ALMNetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALMNetworkService.m; sourceTree = "<group>"; };
+		13D7F8F91B8BB31300647D30 /* ZGTPolygonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZGTPolygonView.h; sourceTree = "<group>"; };
+		13D7F8FA1B8BB31300647D30 /* ZGTPolygonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZGTPolygonView.m; sourceTree = "<group>"; };
+		13D7F8FC1B8BB8B600647D30 /* UIBezierPath+ZEPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+ZEPolygon.h"; sourceTree = "<group>"; };
+		13D7F8FD1B8BB8B600647D30 /* UIBezierPath+ZEPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+ZEPolygon.m"; sourceTree = "<group>"; };
 		13FF279F1B8AE00700EB347F /* ALMiOSUtilities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ALMiOSUtilities.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13FF27A31B8AE00700EB347F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13FF27A41B8AE00700EB347F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -80,6 +86,17 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
+		13D7F8F81B8BB2E200647D30 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				13D7F8FC1B8BB8B600647D30 /* UIBezierPath+ZEPolygon.h */,
+				13D7F8FD1B8BB8B600647D30 /* UIBezierPath+ZEPolygon.m */,
+				13D7F8F91B8BB31300647D30 /* ZGTPolygonView.h */,
+				13D7F8FA1B8BB31300647D30 /* ZGTPolygonView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		13FF27961B8AE00700EB347F = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +120,7 @@
 		13FF27A11B8AE00700EB347F /* ALMiOSUtilities */ = {
 			isa = PBXGroup;
 			children = (
+				13D7F8F81B8BB2E200647D30 /* Views */,
 				138886E61B8AE4CB00A17609 /* Utilities */,
 				13FF27A61B8AE00700EB347F /* AppDelegate.h */,
 				13FF27A71B8AE00700EB347F /* AppDelegate.m */,
@@ -297,10 +315,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				13FF27A81B8AE00700EB347F /* AppDelegate.m in Sources */,
+				13D7F8FE1B8BB8B600647D30 /* UIBezierPath+ZEPolygon.m in Sources */,
 				13FF27AB1B8AE00700EB347F /* MasterViewController.m in Sources */,
 				13FF27A51B8AE00700EB347F /* main.m in Sources */,
 				138886E91B8AE4F700A17609 /* ALMNetworkService.m in Sources */,
 				13FF27AE1B8AE00700EB347F /* DetailViewController.m in Sources */,
+				13D7F8FB1B8BB31300647D30 /* ZGTPolygonView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
