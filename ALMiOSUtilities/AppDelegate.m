@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "STFFixSelectionViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +20,7 @@
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-//    self.window.rootViewController = [[KFSRootContainerViewController alloc] init];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[STFFixSelectionViewController alloc] init]];
     [self.window makeKeyAndVisible];
     
     return YES;
