@@ -10,6 +10,8 @@
 		134B750B1C09328800D2FFFB /* ALMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 134B750A1C09328800D2FFFB /* ALMConstants.m */; };
 		134B75101C093C5D00D2FFFB /* STFFixSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 134B750E1C093C5D00D2FFFB /* STFFixSelectionViewController.m */; };
 		134B75111C093C5D00D2FFFB /* STFFixSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 134B750F1C093C5D00D2FFFB /* STFFixSelectionViewController.xib */; };
+		134B75151C093F5400D2FFFB /* STFDataModelFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 134B75141C093F5400D2FFFB /* STFDataModelFix.m */; };
+		134B75181C093FCB00D2FFFB /* STFDataModelFixItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 134B75171C093FCB00D2FFFB /* STFDataModelFixItem.m */; };
 		138886E91B8AE4F700A17609 /* ALMNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 138886E81B8AE4F700A17609 /* ALMNetworkService.m */; };
 		13FF27A51B8AE00700EB347F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF27A41B8AE00700EB347F /* main.m */; };
 		13FF27A81B8AE00700EB347F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF27A71B8AE00700EB347F /* AppDelegate.m */; };
@@ -35,6 +37,10 @@
 		134B750D1C093C5D00D2FFFB /* STFFixSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STFFixSelectionViewController.h; sourceTree = "<group>"; };
 		134B750E1C093C5D00D2FFFB /* STFFixSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STFFixSelectionViewController.m; sourceTree = "<group>"; };
 		134B750F1C093C5D00D2FFFB /* STFFixSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = STFFixSelectionViewController.xib; sourceTree = "<group>"; };
+		134B75131C093F5400D2FFFB /* STFDataModelFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STFDataModelFix.h; sourceTree = "<group>"; };
+		134B75141C093F5400D2FFFB /* STFDataModelFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STFDataModelFix.m; sourceTree = "<group>"; };
+		134B75161C093FCB00D2FFFB /* STFDataModelFixItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STFDataModelFixItem.h; sourceTree = "<group>"; };
+		134B75171C093FCB00D2FFFB /* STFDataModelFixItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STFDataModelFixItem.m; sourceTree = "<group>"; };
 		138886E71B8AE4F700A17609 /* ALMNetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALMNetworkService.h; sourceTree = "<group>"; };
 		138886E81B8AE4F700A17609 /* ALMNetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALMNetworkService.m; sourceTree = "<group>"; };
 		13FF279F1B8AE00700EB347F /* ALMiOSUtilities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ALMiOSUtilities.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +87,17 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		134B75121C093F1400D2FFFB /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				134B75131C093F5400D2FFFB /* STFDataModelFix.h */,
+				134B75141C093F5400D2FFFB /* STFDataModelFix.m */,
+				134B75161C093FCB00D2FFFB /* STFDataModelFixItem.h */,
+				134B75171C093FCB00D2FFFB /* STFDataModelFixItem.m */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
 		138886E61B8AE4CB00A17609 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +132,7 @@
 		13FF27A11B8AE00700EB347F /* ALMiOSUtilities */ = {
 			isa = PBXGroup;
 			children = (
+				134B75121C093F1400D2FFFB /* DataModels */,
 				134B750C1C093BFD00D2FFFB /* ViewControllers */,
 				138886E61B8AE4CB00A17609 /* Utilities */,
 				13FF27A61B8AE00700EB347F /* AppDelegate.h */,
@@ -307,8 +325,10 @@
 				134B75101C093C5D00D2FFFB /* STFFixSelectionViewController.m in Sources */,
 				13FF27A81B8AE00700EB347F /* AppDelegate.m in Sources */,
 				134B750B1C09328800D2FFFB /* ALMConstants.m in Sources */,
+				134B75181C093FCB00D2FFFB /* STFDataModelFixItem.m in Sources */,
 				13FF27A51B8AE00700EB347F /* main.m in Sources */,
 				138886E91B8AE4F700A17609 /* ALMNetworkService.m in Sources */,
+				134B75151C093F5400D2FFFB /* STFDataModelFix.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
