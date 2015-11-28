@@ -10,6 +10,8 @@
 #import "STFDataServiceManager.h"
 #import "STFDataModelFix.h"
 
+#import <MBProgressHUD/MBProgressHUD.h>
+
 @interface STFFixSelectionViewController ()
 
 @property (nonatomic, copy) STFDataModelFix *currentFix;
@@ -22,16 +24,20 @@
 {
     [super viewDidLoad];
 
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Getting fixed...";
     __weak STFFixSelectionViewController *weakSelf = self;
     [[STFDataServiceManager sharedManager] fetchCurrentFixWithCompletion:^(STFDataModelFix *currentFix, NSError *error) {
-        if (!error) {
-            STFFixSelectionViewController *strongSelf = weakSelf;
-            if (strongSelf) {
+        STFFixSelectionViewController *strongSelf = weakSelf;
+        if (strongSelf) {
+            // called back on main thread
+            [MBProgressHUD hideAllHUDsForView:strongSelf.view animated:YES];
+            if (!error) {
                 strongSelf.currentFix = currentFix;
             }
-        }
-        else {
-            NSLog(@"%@", error);
+            else {
+                NSLog(@"%@", error);
+            }
         }
     }];
 }
