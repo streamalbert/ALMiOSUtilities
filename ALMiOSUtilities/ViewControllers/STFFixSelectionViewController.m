@@ -7,8 +7,12 @@
 //
 
 #import "STFFixSelectionViewController.h"
+#import "STFDataServiceManager.h"
+#import "STFDataModelFix.h"
 
 @interface STFFixSelectionViewController ()
+
+@property (nonatomic, copy) STFDataModelFix *currentFix;
 
 @end
 
@@ -17,7 +21,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    __weak STFFixSelectionViewController *weakSelf = self;
+    [[STFDataServiceManager sharedManager] fetchCurrentFixWithCompletion:^(STFDataModelFix *currentFix, NSError *error) {
+        if (!error) {
+            STFFixSelectionViewController *strongSelf = weakSelf;
+            if (strongSelf) {
+                strongSelf.currentFix = currentFix;
+            }
+        }
+        else {
+            NSLog(@"%@", error);
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning

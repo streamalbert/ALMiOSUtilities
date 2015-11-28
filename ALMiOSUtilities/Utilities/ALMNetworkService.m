@@ -7,7 +7,14 @@
 //
 
 #import "ALMNetworkService.h"
-#import "ALMConstants.h"
+#import "STFConstants.h"
+
+static NSString *const ALMNetworkServiceErrorDomain = @"com.almnetworkservice";
+
+typedef NS_ENUM(NSInteger, ALMErrorDomainCode) {
+    ALMErrorDomainCodeUnknown = 100,
+    ALMErrorDomainCodeUnsuccessfulHttpResponse = 101
+};
 
 @interface ALMNetworkService ()
 
@@ -145,7 +152,7 @@
                 else {
                     [strongSelf.pendingRequests removeObjectForKey:requestKey];
                     if (completion) {
-                        completion(response, [NSError errorWithDomain:ALM_ERROR_DOMAIN code:ALMErrorDomainCodeUnsuccessfulHttpResponse userInfo:nil]);
+                        completion(response, [NSError errorWithDomain:ALMNetworkServiceErrorDomain code:ALMErrorDomainCodeUnsuccessfulHttpResponse userInfo:nil]);
                     }
                 }
             }
