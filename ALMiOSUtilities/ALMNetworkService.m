@@ -7,6 +7,13 @@
 //
 
 #import "ALMNetworkService.h"
+#import "ALMConstants.h"
+
+@interface ALMNetworkService ()
+
+@property (nonatomic) NSMutableDictionary *pendingRequests;
+
+@end
 
 @implementation ALMNetworkService
 
@@ -21,121 +28,211 @@
     return _sharedInstance;
 }
 
-- (void)networkServiceRequestWithURL:(NSURL *)url parameters:(NSDictionary *)parameters requestMethod:(ALMNetworkServiceRequestMethod)requestMethod respondKeyPath:(NSString *)respondKeyPath completion:(ALMNetworkServiceRequestCompletion)completion
+- (void)requestWithURL:(NSURL *)url parameters:(ALMNetworkServiceParameters *)parameters method:(ALMNetworkServiceRequestMethod)method completion:(void(^)(id responseObject, NSError *error))completion
 {
+    NSAssert([[url absoluteString] length] > 0, @"Invalid url for network service!");
     if ([[url absoluteString] length] == 0) {
-        NSAssert(NO, @"%s -- Invalid base URL or path",__PRETTY_FUNCTION__);
         return;
     }
 
-    // build request based on the http method
-    NSMutableURLRequest *request = nil;
-
-    if (requestMethod == ALMNetworkServiceRequestMethodGet) {
-
-        // build the query string
-        NSMutableString *queryString = [[NSMutableString alloc] initWithString:@""];
-        [parameters enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-
-            // for query string keys/values, encode all non-alphanumeric characters
-            if (([key isKindOfClass:[NSNumber class]] || [key isKindOfClass:[NSString class]]) || ([obj isKindOfClass:[NSNumber class]] || [obj isKindOfClass:[NSString class]])) {
-                NSString *paramKey = [[NSString stringWithFormat:@"%@",key] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
-                NSString *paramValue = [[NSString stringWithFormat:@"%@",obj] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
-
-                [queryString appendFormat:@"%@=%@&", paramKey, paramValue];
-            }
-            else {
-                NSAssert(NO, @"%s -- query string key/values can only be either NSString or NSNumber types",__PRETTY_FUNCTION__);
-            }
-        }];
-
-        // create the request URL
-        NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@",[url absoluteString], queryString]];
-        // create the request
-        request = [NSMutableURLRequest requestWithURL:requestURL];
-        request.HTTPMethod = @"GET";
+    NSString *requestKey = [self requestKeyWithURL:url parameters:parameters method:method];
+    if ([self.pendingRequests objectForKey:requestKey] != nil) {
+        // Duplicate request
+        return;
     }
-    else if (requestMethod == ALMNetworkServiceRequestMethodPost) {
 
-        request = [NSMutableURLRequest requestWithURL:url];
-        request.HTTPMethod = @"POST";
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    switch (method) {
+        case ALMNetworkServiceRequestMethodGet: {
 
-        // serialize the parameters as json binary data
-        NSError *serializationError = nil;
-        NSData *jsonBinaryData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&serializationError];
-        request.HTTPBody = jsonBinaryData;
-        if (serializationError) {
-            NSAssert(NO, @"%s -- parameter serialization error",__PRETTY_FUNCTION__);
+            request.HTTPMethod = [self requestMethodStringWithMethod:ALMNetworkServiceRequestMethodGet];
+
+            break;
+        }
+        case ALMNetworkServiceRequestMethodPost: {
+
+            request.HTTPMethod = [self requestMethodStringWithMethod:ALMNetworkServiceRequestMethodPost];
+
+            if ([parameters.httpBodyParameters count] > 0) {
+                NSError *serializationError = nil;
+                NSData *jsonBinaryData = [NSJSONSerialization dataWithJSONObject:parameters.httpBodyParameters options:0 error:&serializationError];
+                request.HTTPBody = jsonBinaryData;
+                if (serializationError) {
+                    NSAssert(NO, @"Http body json serialization error!");
+                }
+            }
+            break;
+        }
+        case ALMNetworkServiceRequestMethodPut: {
+
+            request.HTTPMethod = [self requestMethodStringWithMethod:ALMNetworkServiceRequestMethodPut];
+
+            if ([parameters.httpBodyParameters count] > 0) {
+                NSError *serializationError = nil;
+                NSData *jsonBinaryData = [NSJSONSerialization dataWithJSONObject:parameters.httpBodyParameters options:0 error:&serializationError];
+                request.HTTPBody = jsonBinaryData;
+                if (serializationError) {
+                    NSAssert(NO, @"Http body json serialization error!");
+                }
+            }
+            break;
+        }
+        default: {
+            NSAssert(NO, @"Unsupported network service!");
+            return;
+            break;
         }
     }
-    else {
-        NSAssert(NO, @"%s -- unsupported method", __PRETTY_FUNCTION__);
+
+    [self.pendingRequests setObject:request forKey:requestKey];
+
+    NSMutableString *queryString = [[NSMutableString alloc] initWithString:@""];
+    [parameters.urlParameters enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        if ([key isKindOfClass:[NSString class]] && ([obj isKindOfClass:[NSString class]] || [obj isKindOfClass:[NSNumber class]])) {
+            NSString *paramKey = [[NSString stringWithFormat:@"%@", key] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
+            NSString *paramValue = [[NSString stringWithFormat:@"%@", obj] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
+            [queryString appendFormat:@"%@=%@&", paramKey, paramValue];
+        }
+        else {
+            NSAssert(NO, @"Unsupported url query string format!");
+        }
+    }];
+
+    // set url
+    NSMutableString *requestURLString = [[NSMutableString alloc] initWithString:[url absoluteString]];
+    if ([queryString length] > 0) {
+        [requestURLString appendFormat:@"?%@", queryString];
     }
+    [request setURL:[NSURL URLWithString:requestURLString]];
 
-    if (request) {
+    // add headers
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [parameters.httpHeaderParameters enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        if ([key isKindOfClass:[NSString class]] && ([obj isKindOfClass:[NSString class]] || [obj isKindOfClass:[NSNumber class]])) {
+            [request setValue:obj forHTTPHeaderField:key];
+        }
+        else {
+            NSAssert(NO, @"Http header unsupported format!");
+        }
+    }];
 
-        // add headers
-        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    __weak ALMNetworkService *weakSelf = self;
+    NSURLSessionDataTask *requestTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
 
-        // Create a task.
-        NSURLSessionDataTask *requestTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        ALMNetworkService *strongSelf = weakSelf;
+        if (strongSelf) {
 
-            NSHTTPURLResponse *httpURLResponse = (NSHTTPURLResponse *)response;
-            
-            if (!error)
-            {
-                // only 200 is valid status code
-                if (httpURLResponse.statusCode == 200) {
-
+            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+            if (!error) {
+                if ([self isSuccessStatusCode:httpResponse.statusCode]) {
                     // deserialize the response into a json dictionary
                     NSError *deserializationError = nil;
-                    NSDictionary *serverResponseDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&deserializationError];
-
-                    id serverData = serverResponseDict;
-
-                    if ([respondKeyPath length]) {
-                        @try {
-                            serverData = [serverResponseDict valueForKeyPath:respondKeyPath];
-                        }
-                        @catch (NSException *exception) {
-                            NSAssert(NO, @"%s -- unable to filter response data with key path %@", __PRETTY_FUNCTION__, respondKeyPath);
-                            serverData = nil;
-                        }
-                        @finally {
-                            
+                    id deserializedData = [NSJSONSerialization JSONObjectWithData:data options:0 error:&deserializationError];
+                    if (!deserializationError) {
+                        [strongSelf.pendingRequests removeObjectForKey:requestKey];
+                        if (completion) {
+                            completion(deserializedData, nil);
                         }
                     }
-
-                    if (completion) {
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            completion(serverData, nil);
-                        });
+                    else {
+                        [strongSelf.pendingRequests removeObjectForKey:requestKey];
+                        if (completion) {
+                            completion(response, deserializationError);
+                        }
                     }
                 }
                 else {
+                    [strongSelf.pendingRequests removeObjectForKey:requestKey];
                     if (completion) {
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            completion(nil, error);
-                        });
+                        completion(response, [NSError errorWithDomain:ALM_ERROR_DOMAIN code:ALMErrorDomainCodeUnsuccessfulHttpResponse userInfo:nil]);
                     }
                 }
-                
             }
             else {
+                [strongSelf.pendingRequests removeObjectForKey:requestKey];
                 if (completion) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        completion(nil, error);
-                    });
+                    completion(response, error);
                 }
             }
-        }];
+        }
+    }];
 
-        [requestTask resume];
+    [requestTask resume];
+}
+
+- (NSMutableDictionary *)pendingRequests
+{
+    if (!_pendingRequests) {
+        _pendingRequests = [[NSMutableDictionary alloc] init];
     }
-    else {
-        NSAssert(NO, @"%s -- no valid request", __PRETTY_FUNCTION__);
+    return _pendingRequests;
+}
+
+- (NSString *)requestKeyWithURL:(NSURL *)url parameters:(ALMNetworkServiceParameters *)parameters method:(ALMNetworkServiceRequestMethod)method
+{
+    return [NSString stringWithFormat:@"%@:%@%@", [self requestMethodStringWithMethod:method], [url absoluteString], [parameters description]];
+}
+
+- (NSString *)requestMethodStringWithMethod:(ALMNetworkServiceRequestMethod)method
+{
+    switch (method) {
+        case ALMNetworkServiceRequestMethodGet: {
+            return @"Get";
+            break;
+        }
+        case ALMNetworkServiceRequestMethodPost: {
+            return @"Post";
+            break;
+        }
+        case ALMNetworkServiceRequestMethodPut: {
+            return @"Put";
+            break;
+        }
+        default: {
+            NSAssert(NO, @"Unknown network service!");
+            return @"Unknown";
+            break;
+        }
     }
+}
+
+- (BOOL)isSuccessStatusCode:(NSInteger)statusCode
+{
+    // Assume 2XX is success status code
+    if (statusCode / 100 == 2) {
+        return YES;
+    }
+    return NO;
+}
+
+@end
+
+@interface ALMNetworkServiceParameters ()
+
+@property (nonatomic, copy) NSDictionary *urlParameters;
+@property (nonatomic, copy) NSDictionary *httpHeaderParameters;
+@property (nonatomic, copy) NSDictionary *httpBodyParameters;
+
+@end
+
+@implementation ALMNetworkServiceParameters
+
+- (instancetype)initWithURLParameters:(NSDictionary *)urlParameters
+                 httpHeaderParameters:(NSDictionary *)headerParameters
+                   httpBodyParameters:(NSDictionary *)bodyParameters
+{
+    if (self = [super init]) {
+        self.urlParameters = urlParameters;
+        self.httpHeaderParameters = headerParameters;
+        self.httpBodyParameters = bodyParameters;
+    }
+    return self;
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@%@%@", self.urlParameters, self.httpHeaderParameters, self.httpBodyParameters];
 }
 
 @end
