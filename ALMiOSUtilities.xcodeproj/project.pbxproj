@@ -11,8 +11,6 @@
 		138886E91B8AE4F700A17609 /* ALMNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 138886E81B8AE4F700A17609 /* ALMNetworkService.m */; };
 		13FF27A51B8AE00700EB347F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF27A41B8AE00700EB347F /* main.m */; };
 		13FF27A81B8AE00700EB347F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF27A71B8AE00700EB347F /* AppDelegate.m */; };
-		13FF27AB1B8AE00700EB347F /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF27AA1B8AE00700EB347F /* MasterViewController.m */; };
-		13FF27AE1B8AE00700EB347F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF27AD1B8AE00700EB347F /* DetailViewController.m */; };
 		13FF27B11B8AE00700EB347F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13FF27AF1B8AE00700EB347F /* Main.storyboard */; };
 		13FF27B31B8AE00700EB347F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13FF27B21B8AE00700EB347F /* Images.xcassets */; };
 		13FF27B61B8AE00700EB347F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13FF27B41B8AE00700EB347F /* LaunchScreen.xib */; };
@@ -40,10 +38,6 @@
 		13FF27A41B8AE00700EB347F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		13FF27A61B8AE00700EB347F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13FF27A71B8AE00700EB347F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		13FF27A91B8AE00700EB347F /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		13FF27AA1B8AE00700EB347F /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		13FF27AC1B8AE00700EB347F /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		13FF27AD1B8AE00700EB347F /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		13FF27B01B8AE00700EB347F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		13FF27B21B8AE00700EB347F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		13FF27B51B8AE00700EB347F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -111,10 +105,6 @@
 				138886E61B8AE4CB00A17609 /* Utilities */,
 				13FF27A61B8AE00700EB347F /* AppDelegate.h */,
 				13FF27A71B8AE00700EB347F /* AppDelegate.m */,
-				13FF27A91B8AE00700EB347F /* MasterViewController.h */,
-				13FF27AA1B8AE00700EB347F /* MasterViewController.m */,
-				13FF27AC1B8AE00700EB347F /* DetailViewController.h */,
-				13FF27AD1B8AE00700EB347F /* DetailViewController.m */,
 				13FF27AF1B8AE00700EB347F /* Main.storyboard */,
 				13FF27B21B8AE00700EB347F /* Images.xcassets */,
 				13FF27B41B8AE00700EB347F /* LaunchScreen.xib */,
@@ -302,11 +292,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				13FF27A81B8AE00700EB347F /* AppDelegate.m in Sources */,
-				13FF27AB1B8AE00700EB347F /* MasterViewController.m in Sources */,
 				134B750B1C09328800D2FFFB /* ALMConstants.m in Sources */,
 				13FF27A51B8AE00700EB347F /* main.m in Sources */,
 				138886E91B8AE4F700A17609 /* ALMNetworkService.m in Sources */,
-				13FF27AE1B8AE00700EB347F /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
