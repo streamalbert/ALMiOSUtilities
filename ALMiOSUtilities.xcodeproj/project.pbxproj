@@ -11,7 +11,6 @@
 		138886E91B8AE4F700A17609 /* ALMNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 138886E81B8AE4F700A17609 /* ALMNetworkService.m */; };
 		13FF27A51B8AE00700EB347F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF27A41B8AE00700EB347F /* main.m */; };
 		13FF27A81B8AE00700EB347F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF27A71B8AE00700EB347F /* AppDelegate.m */; };
-		13FF27B11B8AE00700EB347F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13FF27AF1B8AE00700EB347F /* Main.storyboard */; };
 		13FF27B31B8AE00700EB347F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13FF27B21B8AE00700EB347F /* Images.xcassets */; };
 		13FF27B61B8AE00700EB347F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13FF27B41B8AE00700EB347F /* LaunchScreen.xib */; };
 		13FF27C21B8AE00700EB347F /* ALMiOSUtilitiesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FF27C11B8AE00700EB347F /* ALMiOSUtilitiesTests.m */; };
@@ -38,7 +37,6 @@
 		13FF27A41B8AE00700EB347F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		13FF27A61B8AE00700EB347F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13FF27A71B8AE00700EB347F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		13FF27B01B8AE00700EB347F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		13FF27B21B8AE00700EB347F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		13FF27B51B8AE00700EB347F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13FF27BB1B8AE00700EB347F /* ALMiOSUtilitiesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ALMiOSUtilitiesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,7 +103,6 @@
 				138886E61B8AE4CB00A17609 /* Utilities */,
 				13FF27A61B8AE00700EB347F /* AppDelegate.h */,
 				13FF27A71B8AE00700EB347F /* AppDelegate.m */,
-				13FF27AF1B8AE00700EB347F /* Main.storyboard */,
 				13FF27B21B8AE00700EB347F /* Images.xcassets */,
 				13FF27B41B8AE00700EB347F /* LaunchScreen.xib */,
 				13FF27A21B8AE00700EB347F /* Supporting Files */,
@@ -238,7 +235,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13FF27B11B8AE00700EB347F /* Main.storyboard in Resources */,
 				13FF27B61B8AE00700EB347F /* LaunchScreen.xib in Resources */,
 				13FF27B31B8AE00700EB347F /* Images.xcassets in Resources */,
 			);
@@ -317,14 +313,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		13FF27AF1B8AE00700EB347F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13FF27B01B8AE00700EB347F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		13FF27B41B8AE00700EB347F /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -424,8 +412,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ALMiOSUtilities/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -435,8 +425,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ALMiOSUtilities/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
